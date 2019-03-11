@@ -25,6 +25,12 @@ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE",[Name of default gettext d
 
 IT_PROG_INTLTOOL([0.50.1])
 AC_PROG_CC
+AC_PROG_CC_STDC
+if test "x$ac_cv_prog_cc_c99" = xno; then
+        AC_MSG_ERROR([Could not find a C99 compatible compiler])
+else
+        LDFLAGS="$LDFLAGS -lm"
+fi
 AC_HEADER_STDC
 AM_PROG_LIBTOOL
 
